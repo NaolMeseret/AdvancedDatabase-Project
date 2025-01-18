@@ -136,5 +136,5 @@ INSERT INTO UserUpload (UserID, Image) VALUES (1, 'profile1.jpg');
 #### For questions or feedback, feel free to reach out:
 
 - Author: **Naol Meseret**
-- Email: naolmes1506205@gmail.com
+- Email: naolmes15062015@gmail.com
 - GitHub: https://github.com/NaolMeseret
