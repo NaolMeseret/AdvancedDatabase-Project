@@ -1,0 +1,104 @@
+CREATE TABLE `cart` (
+  `OrderID` int(11) NOT NULL,
+  `CustomerID` int(11) DEFAULT NULL,
+  `Size` varchar(255) DEFAULT NULL,
+  `Quantity` int(11) DEFAULT NULL,
+  `ProductID` int(11) DEFAULT NULL
+) 
+INSERT INTO `cart` (`OrderID`, `CustomerID`, `Size`, `Quantity`, `ProductID`) VALUES
+(1, 1, 'Medium', 2, 1),
+(2, 2, 'Large', 1, 2),
+(3, 3, 'Small', 3, 3),
+(4, 4, 'Large', 1, 4),
+(5, 1, 'Small', 2, 5);
+
+CREATE TABLE `category` (
+  `CatID` int(11) NOT NULL,
+  `CatName` varchar(255) DEFAULT NULL,
+  `CatDescription` varchar(255) DEFAULT NULL
+) 
+INSERT INTO `category` (`CatID`, `CatName`, `CatDescription`) VALUES
+(1, 'Electronics', 'Various electronic gadgets and accessories'),
+(2, 'Clothing', 'Apparel for men, women, and children'),
+(3, 'Food & Beverages', 'Various food items and drinks'),
+(4, 'Home Appliances', 'Appliances for daily use at home'),
+(5, 'Books', 'Educational, fiction, and non-fiction books');
+
+CREATE TABLE `customerproducts` (
+  `ProductID` int(11) NOT NULL,
+  `Title` varchar(255) DEFAULT NULL,
+  `Image` varchar(255) DEFAULT NULL,
+  `Cost` decimal(10,2) DEFAULT NULL,
+  `UserID` int(11) DEFAULT NULL,
+  `CustomerID` int(11) DEFAULT NULL
+) 
+INSERT INTO `customerproducts` (`ProductID`, `Title`, `Image`, `Cost`, `UserID`, `CustomerID`) VALUES
+(1, 'Wireless Headphones', 'http://example.com/headphones.jpg', 129.99, 1, 1),
+(2, 'Bluetooth Speaker', 'http://example.com/speaker.jpg', 49.99, 2, 2),
+(3, 'Smartwatch', 'http://example.com/smartwatch.jpg', 199.99, 3, 3),
+(4, 'Laptop Bag', 'http://example.com/laptopbag.jpg', 39.99, 4, 4),
+(5, 'Phone Case', 'http://example.com/phonecase.jpg', 19.99, 1, 2);
+
+CREATE TABLE `login` (
+  `UserID` int(11) NOT NULL,
+  `Username` varchar(255) DEFAULT NULL,
+  `Email` varchar(255) DEFAULT NULL,
+  `Contact` varchar(255) DEFAULT NULL,
+  `Role` varchar(255) DEFAULT NULL,
+  `Password` varchar(255) DEFAULT NULL
+) 
+
+INSERT INTO `login` (`UserID`, `Username`, `Email`, `Contact`, `Role`, `Password`) VALUES
+(1, 'Naol', 'naol@gmail.com', '123-456-7890', 'admin', 'password123'),
+(2, 'Sadik', 'sadik@gmail.com', '987-654-3210', 'user', 'mypassword456'),
+(3, 'Solomon', 'solomon@gmail.com', '555-123-4567', 'user', 'securepass789'),
+(4, 'Thon', 'thon@gmail.com', '555-987-6543', 'admin', 'adminpass101');
+
+CREATE TABLE `ordertable` (
+  `OrderID` int(11) NOT NULL,
+  `Name` varchar(255) DEFAULT NULL,
+  `Address` varchar(255) DEFAULT NULL,
+  `City` varchar(255) DEFAULT NULL,
+  `State` varchar(255) DEFAULT NULL,
+  `ZipCode` varchar(255) DEFAULT NULL,
+  `Contact` varchar(255) DEFAULT NULL,
+  `CustomerID` int(11) DEFAULT NULL
+) 
+INSERT INTO `ordertable` (`OrderID`, `Name`, `Address`, `City`, `State`, `ZipCode`, `Contact`, `CustomerID`) VALUES
+(1, 'Yohannes Tesfaye', 'Bahir Dar, Gojjam', 'Bahir Dar', 'Amhara', '6000', '0911-123-456', 1),
+(2, 'Marta Alemu', 'Mekelle, Tigray', 'Mekelle', 'Tigray', '7000', '0912-654-321', 2),
+(3, 'Abdi Ibrahim', 'Jimma, Oromia', 'Jimma', 'Oromia', '8000', '0913-789-123', 3),
+(4, 'Hana Desta', 'Hawassa, SNNPR', 'Hawassa', 'SNNPR', '9000', '0914-987-654', 4),
+(5, 'Tadesse Fikre', 'Dire Dawa, Dire Dawa', 'Dire Dawa', 'Dire Dawa', '10000', '0915-222-333', 1);
+
+CREATE TABLE `product` (
+  `ProductID` int(11) NOT NULL,
+  `Price` decimal(10,2) DEFAULT NULL,
+  `Color` varchar(255) DEFAULT NULL,
+  `Brand` varchar(255) DEFAULT NULL,
+  `CatID` int(11) DEFAULT NULL,
+  `ProductName` varchar(255) DEFAULT NULL,
+  `ProductDesc` varchar(255) DEFAULT NULL,
+  `Image1` varchar(255) DEFAULT NULL,
+  `Image2` varchar(255) DEFAULT NULL,
+  `Image3` varchar(255) DEFAULT NULL
+)
+
+
+INSERT INTO `product` (`ProductID`, `Price`, `Color`, `Brand`, `CatID`, `ProductName`, `ProductDesc`, `Image1`, `Image2`, `Image3`) VALUES
+(1, 129.99, 'Black', 'Sony', 1, 'Wireless Headphones', 'High-quality wireless headphones with noise cancellation', 'http://example.com/headphones1.jpg', 'http://example.com/headphones2.jpg', 'http://example.com/headphones3.jpg'),
+(2, 49.99, 'Blue', 'JBL', 1, 'Bluetooth Speaker', 'Portable Bluetooth speaker with high bass', 'http://example.com/speaker1.jpg', 'http://example.com/speaker2.jpg', 'http://example.com/speaker3.jpg'),
+(3, 199.99, 'Silver', 'Samsung', 1, 'Smartwatch', 'Smartwatch with heart-rate monitoring and fitness tracking', 'http://example.com/smartwatch1.jpg', 'http://example.com/smartwatch2.jpg', 'http://example.com/smartwatch3.jpg'),
+(4, 39.99, 'Gray', 'HP', 4, 'Laptop Bag', 'Stylish and durable laptop bag', 'http://example.com/laptopbag1.jpg', 'http://example.com/laptopbag2.jpg', 'http://example.com/laptopbag3.jpg'),
+(5, 19.99, 'Red', 'Apple', 2, 'Phone Case', 'Sleek and protective phone case for iPhone', 'http://example.com/phonecase1.jpg', 'http://example.com/phonecase2.jpg', 'http://example.com/phonecase3.jpg');
+
+CREATE TABLE `userupload` (
+  `UserID` int(11) NOT NULL,
+  `Image` varchar(255) DEFAULT NULL
+) 
+
+INSERT INTO `userupload` (`UserID`, `Image`) VALUES
+(1, 'profile1.jpg'),
+(2, 'profile2.jpg'),
+(3, 'profile3.jpg'),
+(4, 'profile4.jpg');
